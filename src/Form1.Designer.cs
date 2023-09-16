@@ -47,6 +47,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = SystemColors.MenuHighlight;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Name = "Form1";

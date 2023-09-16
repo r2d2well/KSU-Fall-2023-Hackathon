@@ -1,4 +1,5 @@
 using System.Collections;
+using WeatherApp;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace KSU_Fall_2023_Hackathon
@@ -22,7 +23,7 @@ namespace KSU_Fall_2023_Hackathon
 
         }
 
-        private void AddSpecialLabel(string name)
+        public void AddSpecialLabel(string name)
         {
             SpecialLabel sLabel = new SpecialLabel(name);
             sLabel.AutoSize = true;
@@ -32,8 +33,8 @@ namespace KSU_Fall_2023_Hackathon
             sLabel.Text = name;
             sLabel.MouseClick += LabelOnMouseClick;
 
-            list.Add((SpecialLabel) sLabel);
-            Controls.Add((SpecialLabel) sLabel);
+            list.Add((SpecialLabel)sLabel);
+            Controls.Add((SpecialLabel)sLabel);
         }
 
         private void SetUpForm()
@@ -45,7 +46,7 @@ namespace KSU_Fall_2023_Hackathon
                 {
                     if (line != "")
                     {
-                       AddSpecialLabel(line);
+                        AddSpecialLabel(line);
                     }
                 }
             }
@@ -64,7 +65,7 @@ namespace KSU_Fall_2023_Hackathon
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SelectTaskForm SelectTaskForm = new SelectTaskForm();
+            SelectTaskForm SelectTaskForm = new SelectTaskForm(this);
             SelectTaskForm.ShowDialog();
             if (name == "")
             {
@@ -77,7 +78,7 @@ namespace KSU_Fall_2023_Hackathon
         {
             Controls.Remove(list[index]);
             list.RemoveAt(index);
-            for (int x = index; x < list.Count;  x++)
+            for (int x = index; x < list.Count; x++)
             {
                 list[x].id--;
                 SpecialLabel.count--;
@@ -101,12 +102,17 @@ namespace KSU_Fall_2023_Hackathon
                     if (label.Text == "Brush Teeth")
                     {
                         timePassed = 0;
-                        brushTeethLabel = (SpecialLabel) sender;
+                        brushTeethLabel = (SpecialLabel)sender;
                         CreateTimeLabel((SpecialLabel)sender);
                         System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer();
                         MyTimer.Interval = (1000); // 1 sec
-                        MyTimer.Tick += new EventHandler (MyTimer_Tick);
+                        MyTimer.Tick += new EventHandler(MyTimer_Tick);
                         MyTimer.Start();
+                    }
+                    else if (label.Text == "Get Dressed")
+                    {
+                        WetherInfoForm w = new WetherInfoForm();
+                        w.ShowDialog();
                     }
                     else
                     {
@@ -127,7 +133,7 @@ namespace KSU_Fall_2023_Hackathon
 
         private void MyTimer_Tick(object sender, EventArgs e)
         {
-            updateTime((System.Windows.Forms.Timer) sender);
+            updateTime((System.Windows.Forms.Timer)sender);
         }
 
         private void CreateTimeLabel(SpecialLabel label)

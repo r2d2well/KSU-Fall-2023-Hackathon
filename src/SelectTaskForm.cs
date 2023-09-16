@@ -14,10 +14,12 @@ namespace KSU_Fall_2023_Hackathon
 {
     public partial class SelectTaskForm : Form
     {
+        private Form1 parentForm;
 
-        public SelectTaskForm()
+        public SelectTaskForm(Form1 parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
         }
 
         private void other_button_Click(object sender, EventArgs e)
@@ -29,6 +31,26 @@ namespace KSU_Fall_2023_Hackathon
 
         private void brush_teeth_button_Click(object sender, EventArgs e)
         {
+            parentForm.AddSpecialLabel("Brush Teeth");
+            this.Close();
+        }
+
+        private void ShowerButton_Click(object sender, EventArgs e)
+        {
+            parentForm.AddSpecialLabel("Shower");
+            this.Close();
+        }
+
+        private void BreakfeastButton_Click(object sender, EventArgs e)
+        {
+            parentForm.AddSpecialLabel("Breakfeast");
+            this.Close();
+        }
+
+        private void DressButton_Click(object sender, EventArgs e)
+        {
+            parentForm.AddSpecialLabel("Get Dressed");
+            this.Close();
         }
     }
 }

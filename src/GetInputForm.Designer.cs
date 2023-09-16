@@ -66,6 +66,7 @@
             AcceptButton = button1;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Peru;
             ClientSize = new Size(465, 169);
             Controls.Add(button1);
             Controls.Add(label1);

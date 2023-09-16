@@ -13,5 +13,8 @@
     <Compile Update="SpecialLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="WetherInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
