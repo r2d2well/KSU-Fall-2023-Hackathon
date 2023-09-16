@@ -33,11 +33,12 @@
             ShowerButton = new Button();
             BreakfeastButton = new Button();
             DressButton = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(181, 164);
+            button1.Location = new Point(346, 164);
             button1.Name = "button1";
             button1.Size = new Size(128, 128);
             button1.TabIndex = 0;
@@ -77,7 +78,7 @@
             // 
             // DressButton
             // 
-            DressButton.Location = new Point(346, 12);
+            DressButton.Location = new Point(181, 164);
             DressButton.Name = "DressButton";
             DressButton.Size = new Size(128, 128);
             DressButton.TabIndex = 4;
@@ -85,12 +86,23 @@
             DressButton.UseVisualStyleBackColor = true;
             DressButton.Click += DressButton_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(346, 12);
+            button3.Name = "button3";
+            button3.Size = new Size(128, 128);
+            button3.TabIndex = 5;
+            button3.Text = "Contacts";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // SelectTaskForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GrayText;
-            ClientSize = new Size(800, 304);
+            BackColor = Color.SeaGreen;
+            ClientSize = new Size(506, 304);
+            Controls.Add(button3);
             Controls.Add(DressButton);
             Controls.Add(BreakfeastButton);
             Controls.Add(ShowerButton);
@@ -108,5 +120,6 @@
         private Button ShowerButton;
         private Button BreakfeastButton;
         private Button DressButton;
+        private Button button3;
     }
 }

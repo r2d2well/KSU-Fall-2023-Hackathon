@@ -14,9 +14,9 @@ namespace KSU_Fall_2023_Hackathon
 {
     public partial class SelectTaskForm : Form
     {
-        private Form1 parentForm;
+        private MainForm parentForm;
 
-        public SelectTaskForm(Form1 parentForm)
+        public SelectTaskForm(MainForm parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
@@ -24,7 +24,7 @@ namespace KSU_Fall_2023_Hackathon
 
         private void other_button_Click(object sender, EventArgs e)
         {
-            GetInputForm getInputForm = new GetInputForm();
+            GetInputForm getInputForm = new GetInputForm(parentForm);
             getInputForm.ShowDialog();
             this.Close();
         }
@@ -50,6 +50,12 @@ namespace KSU_Fall_2023_Hackathon
         private void DressButton_Click(object sender, EventArgs e)
         {
             parentForm.AddSpecialLabel("Get Dressed");
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            parentForm.AddSpecialLabel("Contacts");
             this.Close();
         }
     }

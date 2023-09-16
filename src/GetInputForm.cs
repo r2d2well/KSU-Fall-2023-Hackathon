@@ -12,14 +12,19 @@ namespace KSU_Fall_2023_Hackathon
 {
     public partial class GetInputForm : Form
     {
-        public GetInputForm()
+        MainForm parentForm;
+        public GetInputForm(MainForm form)
         {
             InitializeComponent();
+            parentForm = form;
         }
 
         private void ReturnValue(object sender, EventArgs e)
         {
-            Form1.name = textBox1.Text;
+            if (textBox1.Text != "")
+            {
+                parentForm.AddSpecialLabel(textBox1.Text);
+            }
             this.Hide();
         }
     }
